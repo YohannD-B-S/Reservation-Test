@@ -39,6 +39,6 @@ $reservation->nightPrice = 1000; //on determine le prix de la nuit
 // on donne une une valeur via une variable et un calcul automtique du prix total du séjour.
 $totalPrice = (($reservation->endDate->getTimestamp() - $reservation->startDate->getTimestamp()) / (3600 * 24) * $reservation->nightPrice) + 5000;
 
-$reservation->totalPrice = $totalPrice; // ici dans le tableau reservation on, vient chercher le total price a qui on attribut la valeur du calcul juste au dessus
+$reservation->totalPrice = $totalPrice; // ici dans la class reservation on vient chercher le total price a qui on attribut la valeur du calcul juste au dessus
 $reservation->bookedAt = new DateTime(); // la date de reservation 
 $reservation->status = "CART"; // status de la commande.
