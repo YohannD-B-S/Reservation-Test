@@ -49,6 +49,14 @@ class Reservation
         $this->status = "CART"; // status de la commande.
         //$this peut etre utilisé a l'interieur d'une class. ce qui permet de ne pas appeler la class sans arret et juste mettre $this
     }
+    public function cancel(){ //creation d'une function pour annuler une commande
+        if ($this->status =="CART"){ //si le status == cart 
+            $this->status == "CANCELED"; //alors status devient canceled
+        }
+
+        
+
+    }
 }
 
 $firstName = "Emanuel"; //je donne une valeur a mes variables.
