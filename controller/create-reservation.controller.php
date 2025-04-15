@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"]=== "POST"){ // si le serveur reçoit bien une inf
         $error = $e->getMessage();
     }
 }
-
+$reservationForUser = findReservationForUser();
 
 
 require_once ("../view/create-reservation.view.php") ;

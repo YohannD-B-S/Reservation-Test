@@ -7,6 +7,10 @@ function persistReservation($reservation){ //creation d'une fonction afin d'ouvr
 
 function findReservationForUser(){ // creation d'une fonction afin de retourner la valeur reservation de la session 
     session_start();
+
+    if (array_key_exists('reservation', $_SESSION) ){
     return $_SESSION["reservation"];
+}else{
+    return null;
 }
-//complementaire la premiere function
+}//complementaire la premiere function
