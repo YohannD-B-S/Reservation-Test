@@ -36,6 +36,8 @@ class Reservation
 
     public $comment; // creation d'une variable comment pour les commentaires 
 
+    public $commentDate;
+
     public function __construct ( $firstName, $name, $place, $startDate, $endDate, $cleaningOption){
         // je donne des parametres a ma fonction construct.
 
@@ -76,6 +78,7 @@ class Reservation
     public function leaveCommand($commentText){
         if ($this->status == "PAYED") { // si le status est payed 
             $this->comment = $commentText; // Attribue le texte directement
+            $this->commentDate = new DateTime(); // attribue une date au commentaire
         }
     }
 }
