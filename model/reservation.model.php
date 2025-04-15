@@ -66,7 +66,7 @@ class Reservation
         }   
     }
     public function pay(){
-        if ($this->status =="CART" and $this->status !== "CANCELED" ){ // si le status est egala cart et n'est pas egal a canceled 
+        if ($this->status =="CART" and $this->status !== "CANCELED" ){ // si le status est egal a cart et n'est pas egal a canceled 
             $this->status == "PAYED"; //alors le status devient payed 
             $this->payedDate = new DateTime(); // et on ajoute une date au moment de la reservation.
         }
@@ -95,4 +95,3 @@ $cleaningOption = false;
 // on cree une nouvelle reservation qui contient toute les variable que je créé plus haut.
 
 $reservation = new Reservation ($firstName , $name, $place, $startDate, $endDate, $cleaningOption);
-var_dump($reservation); die;
