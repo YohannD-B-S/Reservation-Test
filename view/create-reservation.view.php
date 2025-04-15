@@ -50,9 +50,9 @@
         <button type="submit">Créer la réservation</button>
     </form>
 
-    <p><?php echo $message ?></p>
-
-
+    <?php if (!is_null($error)) { ?> <!-- si error n'est pas null-->
+        <p>La réservation n'a pas été effectuée : <?php echo $error; ?></p> <!--alors on affiche le message : -->
+	<?php } ?>
 
 
     <?php if (!is_null($reservation)) { ?> <!-- si $reservation n'est pas nulle (! avant le "is") -->

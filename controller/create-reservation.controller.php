@@ -3,7 +3,9 @@ require_once("../config.php");
 
 require_once("../model/reservation.model.php");
 
-$reservation= null;
+$reservation= null; //j'initialise ma valeur de reservation à null 
+
+$error= null; //j'initialise la valeur error à null
 
 
 if ($_SERVER["REQUEST_METHOD"]=== "POST"){ // si le serveur reçoit bien une info en methode POST alors 
@@ -17,21 +19,21 @@ if ($_SERVER["REQUEST_METHOD"]=== "POST"){ // si le serveur reçoit bien une inf
 
     if ($_POST['cleaning-option']=="on"){ // si la valeur cleanoption envoyé en method post est égale à 'on'
         $cleaningOption=true; //alors la variable cleaningoption devient true 
+
     }else{
         $cleaningOption=false; //sinon elle sera false
+
     }
 
+    try{
 
     //la variable reservation contient la class ainsi que les fonction que nous avons parametrer dans le model reservation. 
     // il creer une nouvelle reservation qui prends en compte firstname, name, place, startDate, endDate et le cleanOption.
     $reservation = new Reservation($firstName, $name, $place, $startDate, $endDate, $cleaningOption);
 
-    
-    
-    
-
-
-
+    } catch(Exception $e){
+        $error = $e->getMessage();
+    }
 }
 
 

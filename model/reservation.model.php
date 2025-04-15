@@ -41,6 +41,9 @@ class Reservation
     public function __construct ( $firstName, $name, $place, $startDate, $endDate, $cleaningOption){
         // je donne des parametres a ma fonction construct.
 
+    if (strlen ($name)<2){ //si le nombre de caractère est inferieur a 2
+        throw new Exception('Le nom doit contenir au moins 2 caractères'); //on cree une nouvelle exception avec comme message : 'le nom doit contenir au moins 2 caractere
+    } 
 
         $this->firstName = $firstName; // j'associe chaque parametre à une partie de ma class. ici firstName est associer au parametre $firstName
         $this->name = $name; //j'associe chaque parametre à une partie de ma class. name = $name 
