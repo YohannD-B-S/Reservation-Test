@@ -1,5 +1,7 @@
 <?php
 
+use Dom\Comment;
+
 class Reservation
 { // creation d'une class reservation
 
@@ -28,6 +30,12 @@ class Reservation
 
     public $cleaningOption; // creation de la variable prix du ménage dans la classe reservation
 
+    public $canceledDate; // creation d'une variable date d'annulation de la reservation
+
+    public $payedDate; // creation d'une variable qui indique la date de paiment
+
+    public $comment; // creation d'une variable comment pour les commentaires 
+
     public function __construct ( $firstName, $name, $place, $startDate, $endDate, $cleaningOption){
         // je donne des parametres a ma fonction construct.
 
@@ -52,12 +60,26 @@ class Reservation
     public function cancel(){ //creation d'une function pour annuler une commande
         if ($this->status =="CART"){ //si le status == cart 
             $this->status == "CANCELED"; //alors status devient canceled
+            $this->canceledDate = new DateTime(); // creation de la date d'annulation
+        }   
+    }
+    public function pay(){
+        if ($this->status =="CART" and $this->status !== "CANCELED" ){ // si le status est egala cart et n'est pas egal a canceled 
+            $this->status == "PAYED"; //alors le status devient payed 
+            $this->payedDate = new DateTime(); // et on ajoute une date au moment de la reservation.
         }
 
-        
+            
+    }
 
+
+    public function leaveCommand($commentText){
+        if ($this->status == "PAYED") { // si le status est payed 
+            $this->comment = $commentText; // Attribue le texte directement
+        }
     }
 }
+
 
 $firstName = "Emanuel"; //je donne une valeur a mes variables.
 $name = "macron"; 
