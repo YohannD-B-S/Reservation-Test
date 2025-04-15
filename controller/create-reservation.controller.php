@@ -3,6 +3,8 @@ require_once("../config.php");
 
 require_once("../model/reservation.model.php");
 
+$reservation= null;
+
 
 if ($_SERVER["REQUEST_METHOD"]=== "POST"){ // si le serveur reçoit bien une info en methode POST alors 
     

@@ -82,16 +82,3 @@ class Reservation
         }
     }
 }
-
-
-$firstName = "Emanuel"; //je donne une valeur a mes variables.
-$name = "macron"; 
-$place = "2017 Autoroute de la ruine";
-$startDate = new DateTime('2025-04-05'); 
-$endDate = new DateTime('2025-08-08');
-$cleaningOption = false;
-
-
-// on cree une nouvelle reservation qui contient toute les variable que je créé plus haut.
-
-$reservation = new Reservation ($firstName , $name, $place, $startDate, $endDate, $cleaningOption);
