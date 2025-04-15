@@ -19,7 +19,7 @@
         </label>
 
         <Label>Nom
-            <input type="text" placeholder="Name"  name="name">
+            <input type="text" placeholder="Name" name="name">
         </Label>
 
         <label>Lieu
@@ -34,12 +34,12 @@
             </select>
         </label>
 
-        <label > Date d'arrivée
+        <label> Date d'arrivée
             <input type="date" name="start-date">
         </label>
 
 
-        <label > Date de départ
+        <label> Date de départ
             <input type="date" name="end-date">
         </label>
 
@@ -48,14 +48,27 @@
         </label>
 
         <button type="submit">Créer la réservation</button>
-
-
-
-
-
     </form>
 
+    <p><?php echo $message ?></p>
 
+
+
+
+    <?php if (!is_null($reservation)) { ?> <!-- si $reservation n'est pas nulle (! avant le "is") -->
+
+        <div>
+
+            <h2>récapitulatif de la réservation :</h2> <!-- on affiche le titre pour le récap de la reservation-->
+            <p>Prénom : <?php echo $reservation->firstName; ?></p> <!-- on affiche le prénom contenu dans la reservation -->
+            <p>Nom : <?php echo $reservation->name; ?></p> <!-- on affiche le nom -->
+            <p>Lieu : <?php echo $reservation->place; ?></p> <!-- on afiche le lieu de reservation -->
+            <p>Dates : <?php echo $reservation->startDate->format('d-m-y'); ?> / <?php echo $reservation->endDate->format('d-m-y'); ?> </p> <!--on affiche la daate d'arrivé et celle de départ au format jours mois année-->
+            <p>Prix Total : <?php echo $reservation->totalPrice; ?></p> <!-- on affiche le prix total via la fonction totalprice se trouvant dans la foncton du model-->
+            <p>Option de ménage : <?php echo $reservation->cleaningOption ? "oui" : "non" ?></p> <!--on affihe si oui ou non il ya les options ménages-->
+        </div>
+
+    <?php } ?>
 
 
 

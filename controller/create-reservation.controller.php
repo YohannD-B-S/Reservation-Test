@@ -4,9 +4,6 @@ require_once("../config.php");
 require_once("../model/reservation.model.php");
 
 
-$message="";
-
-
 if ($_SERVER["REQUEST_METHOD"]=== "POST"){ // si le serveur reçoit bien une info en methode POST alors 
     
     $firstName=$_POST['firstName']; // la variable firstname est égale a la method POST envoyé  intitulé 'firstName'
@@ -27,8 +24,9 @@ if ($_SERVER["REQUEST_METHOD"]=== "POST"){ // si le serveur reçoit bien une inf
     // il creer une nouvelle reservation qui prends en compte firstname, name, place, startDate, endDate et le cleanOption.
     $reservation = new Reservation($firstName, $name, $place, $startDate, $endDate, $cleaningOption);
 
-    //il affiche un message : suivit de la function totalPrice qui permets d'afficher le prix total de la reservation.
-    $message = "votre reservation est confirmé pour un total de" . $reservation->totalPrice;
+    
+    
+    
 
 
 
