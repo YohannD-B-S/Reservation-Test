@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         persistReservation($reservationForUser);
         
     } else {
-        echo "Erreur : la réservation n'a pas été trouvée."; // Message d'erreur en cas de problème
+        $cancelMessage = "Erreur : la réservation n'a pas été trouvée."; // Message d'erreur en cas de problème
     }
 }
 

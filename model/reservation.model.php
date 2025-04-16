@@ -78,11 +78,10 @@ class Reservation
             
     }
 
-
-    public function leaveCommand($commentText){
-        if ($this->status == "PAYED") { // si le status est payed 
-            $this->comment = $commentText; // Attribue le texte directement
-            $this->commentDate = new DateTime(); // attribue une date au commentaire
+    public function leaveCommand($commentText) {
+        if ($this->status == "PAYED") { // Vérifie si le statut est PAYED
+            $this->comment = $commentText; // Attribue le texte du commentaire
+            $this->commentDate = new DateTime(); // Attribue une date au commentaire
         }
     }
 }
