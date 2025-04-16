@@ -10,7 +10,7 @@
         <ul>
             <li><a href="http://localhost/tp-Reservation/controller/create-reservation.controller.php">Create commande</a></li>
             <li><a href="http://localhost/tp-Reservation/controller/cancel-reservation.controller.php">Cancel commande</a></li>
-            <li><a href="">Pay commande</a></li>
+            <li><a href="http://localhost/tp-Reservation/controller/pay-reservation.controller.php">Pay commande</a></li>
         </ul>
     </header>
     

@@ -10,16 +10,16 @@
 <body>
     <main>
 
-        <h1>Annulation de votre séjour</h1> <!-- titre annulation de la reservation-->
+        <h1>Paiement de votre séjour</h1> <!-- titre paiement de la reservation-->
 
         <?php require_once('../view/partiel/_resum-reservation.view.php')?>
 
 
         <form method="post">
-            <button type="submit">Annuler la réservation</button> <!--Bouton annuler la reservation -->
+            <button type="submit">Payer le sejour</button> <!--Bouton payer la reservation -->
         </form>
 
-        <p><?php echo $cancelMessage?></p>
+        <p><?php echo $payMessage?></p>
 
 
     </main>

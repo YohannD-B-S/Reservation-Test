@@ -3,7 +3,7 @@
 require_once('../config.php'); //on récupere la confi
 require_once('../model/reservation.model.php'); //on récupere le model de la reservation contenant la class
 require_once('../model/reservation.repository.php'); // on récupere le repository contenant la fonction findReservationForUser
-require_once('../model/home.php');
+require_once('../view/partiel/_header.view.php');
 
 $reservationForUser = findReservationForUser(); // on cree la variable afin d'afficher le récapitulatif de la commande grace a la fonction
 
@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Vérification de la méthode POST
     
     // d'appeler la méthode 'cancel' correctement
-    if (isset($reservationForUser)) {
+    if (!is_null ($reservationForUser)) {
         $reservationForUser->cancel(); // Ajout des parenthèses pour appeler la méthode
         $cancelMessage = "Votre séjour est bien annulé"; // Correction des espaces et amélioration de la lisibilité
         persistReservation($reservationForUser);

@@ -38,7 +38,7 @@ class Reservation
 
     public $commentDate;
 
-    public function __construct ( $firstName, $name, $place, $startDate, $endDate, $cleaningOption){
+    public function __construct ( $firstName, $name, $place, $startDate, $endDate, $cleaningOption, $status){
         // je donne des parametres a ma fonction construct.
 
     if (strlen ($name)<2){ //si le nombre de caractère est inferieur a 2
@@ -51,6 +51,7 @@ class Reservation
         $this->startDate =$startDate; //j'associe chaque parametre à une partie de ma class. startDate = $startDate
         $this->endDate = $endDate; //j'associe chaque parametre à une partie de ma class. endDate = $endDate
         $this->cleaningOption = $cleaningOption;  //j'associe chaque parametre à une partie de ma class. cleanOption = $cleanOption
+        $this->status = $status;
 
         $this->nightPrice = 1000; //on determine le prix de la nuit 
 
@@ -63,14 +64,14 @@ class Reservation
         //$this peut etre utilisé a l'interieur d'une class. ce qui permet de ne pas appeler la class sans arret et juste mettre $this
     }
     public function cancel(){ //creation d'une function pour annuler une commande
-        if ($this->status =="CART"){ //si le status == cart 
-            $this->status == "CANCELED"; //alors status devient canceled
+        if ($this->status =="CART" and $this->status !=="PAYED"){ //si le status == cart 
+            $this->status = "CANCELED"; //alors status devient canceled
             $this->canceledDate = new DateTime(); // creation de la date d'annulation
         }   
     }
     public function pay(){
         if ($this->status =="CART" and $this->status !== "CANCELED" ){ // si le status est egal a cart et n'est pas egal a canceled 
-            $this->status == "PAYED"; //alors le status devient payed 
+            $this->status ="PAYED"; //alors le status devient payed 
             $this->payedDate = new DateTime(); // et on ajoute une date au moment de la reservation.
         }
 
