@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    
 
     <h1>Reservation de votre séjour</h1>
 

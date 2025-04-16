@@ -31,6 +31,8 @@
             <button type="submit">Annuler la réservation</button> <!--Bouton annuler la reservation -->
         </form>
 
+        
+
 
     </main>
 </body>

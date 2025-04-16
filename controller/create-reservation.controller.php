@@ -4,6 +4,7 @@ require_once("../config.php");
 require_once("../model/reservation.model.php");
 
 require_once("../model/reservation.repository.php");
+require_once("../model/home.php");
 
 $reservation = null; //j'initialise ma valeur de reservation à null 
 
@@ -34,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"]=== "POST"){ // si le serveur reçoit bien une inf
     $reservation = new Reservation($firstName, $name, $place, $startDate, $endDate, $cleaningOption);
     persistReservation($reservation);
 
-    } catch(Exception $e){
+    } catch(Exception $e){ //attrappe l'exception a la variable $e puis 
         $error = $e->getMessage();
     }
 }
