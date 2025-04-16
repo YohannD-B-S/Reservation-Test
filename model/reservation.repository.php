@@ -1,16 +1,23 @@
 <?php
 
-function persistReservation($reservation){ //creation d'une fonction afin d'ouvrir une session et de donner la valeur $reservation à la partie "reservation" de la session
-    session_start();
-    $_SESSION ["reservation"] = $reservation;
+function persistReservation($reservation) {
+    // Vérifie si une session est déjà active avant de l'ouvrir
+    if (session_status() !== PHP_SESSION_ACTIVE) {
+        session_start(); // Démarrer la session si elle n'est pas active
+    }
+    $_SESSION["reservation"] = $reservation; // Sauvegarder la réservation dans la session
 }
 
-function findReservationForUser(){ // creation d'une fonction afin de retourner la valeur reservation de la session 
-    session_start();
+function findReservationForUser() {
+    // Vérifie si une session est déjà active avant de l'ouvrir
+    if (session_status() !== PHP_SESSION_ACTIVE) {
+        session_start(); // Démarrer la session si elle n'est pas active
+    }
 
-    if (array_key_exists('reservation', $_SESSION) ){
-    return $_SESSION["reservation"];
-}else{
-    return null;
+    // Vérifie si l'index 'reservation' existe dans la session pour éviter les erreurs
+    if (isset($_SESSION['reservation'])) {
+        return $_SESSION["reservation"]; // Retourne la réservation si elle existe
+    } else {
+        return null; // Retourne null si aucune réservation n'est trouvée
+    }
 }
-}//complementaire la premiere function
