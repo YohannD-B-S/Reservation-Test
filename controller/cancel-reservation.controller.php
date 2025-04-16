@@ -19,7 +19,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $cancelMessage = "Votre séjour est bien annulé"; // Correction des espaces et amélioration de la lisibilité
         persistReservation($reservationForUser);
         
-        echo $cancelMessage; // Affichage du message
     } else {
         echo "Erreur : la réservation n'a pas été trouvée."; // Message d'erreur en cas de problème
     }

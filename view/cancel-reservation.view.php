@@ -31,7 +31,7 @@
             <button type="submit">Annuler la réservation</button> <!--Bouton annuler la reservation -->
         </form>
 
-        
+        <p><?php echo $cancelMessage?></p>
 
 
     </main>
