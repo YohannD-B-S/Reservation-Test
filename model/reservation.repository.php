@@ -2,8 +2,6 @@
 
 function persistReservation($reservation) {
 
-	session_start();
-
 	// je récupère une instance de la classe PDO connectée à la base de données du projet
 	$pdo = connectToDB();
 
@@ -34,17 +32,28 @@ function persistReservation($reservation) {
 	$pdo->query($query);
 
 }
-
+//on cree une fonction afin de trouver la derniere reservation d'une personne precise dans la BDD
 function findReservationForUser() {
-    // Vérifie si une session est déjà active avant de l'ouvrir
-    if (session_status() !== PHP_SESSION_ACTIVE) {
-        session_start(); // Démarrer la session si elle n'est pas active
-    }
 
-    // Vérifie si l'index 'reservation' existe dans la session pour éviter les erreurs
-    if (isset($_SESSION['reservation'])) {
-        return $_SESSION["reservation"]; // Retourne la réservation si elle existe
-    } else {
-        return null; // Retourne null si aucune réservation n'est trouvée
-    }
+    $pdo=connectToDB(); //on donne le resultat de la fonction connectToDB comme valeur a la variable $pdo
+
+    /* SQL la variable $query est égal à */
+   $query = "SELECT * FROM `reservation`  /* on selectionne tout depuis la colonne reservation*/
+                        WHERE reservation.name = 'Dubuis'/*la ou le nom dans la reservation est Dubuis*/
+                        ORDER BY id DESC /*on le mets dans l'ordre descendant (plus grand au plus prtit) */
+                        LIMIT 1"; /*et on selectionne le plus grand qui est aussi le plus recent*/
+
+
+// Exécute une requête SQL en utilisant l'objet PDO (ici, $pdo) 
+// La méthode query() envoie la requête contenue dans $query à la base de données
+// PDO::FETCH_ASSOC signifie que les résultats seront retournés sous forme de tableau associatif 
+$result = $pdo->query($query, PDO::FETCH_ASSOC); 
+
+// Récupère une seule ligne du résultat de la requête
+// La méthode fetch() permet d'extraire la première ligne du tableau résultant
+$reservation = $result->fetch(); 
+
+// Retourne la ligne récupérée pour être utilisée dans le reste du programme
+return $reservation; 
 }
+
