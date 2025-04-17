@@ -1,3 +1,4 @@
+<?php $reservationForUser = findReservationForUser() ?>
 
 <?php if (!is_null($reservationForUser)) { ?> <!-- si $reservation n'est pas nulle (! avant le "is") -->
 
@@ -11,6 +12,11 @@
     <p>Prix Total : <?php echo $reservationForUser->totalPrice; ?></p> <!-- on affiche le prix total via la fonction totalprice se trouvant dans la foncton du model-->
     <p>Option de ménage : <?php echo $reservationForUser->cleaningOption ? "oui" : "non" ?></p> <!--on affihe si oui ou non il ya les options ménages-->
     <p>status :<?php echo $reservationForUser->status;?> </p>
+    
+    <p><?php if (!is_null($reservationForUser->comment)){?>
+        commentaire : <?php echo $reservationForUser->comment;
+    }?></p>
+
 </div>
 
 <?php } ?>

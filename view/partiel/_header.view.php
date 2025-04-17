@@ -8,9 +8,10 @@
 <body>
     <header>
         <ul>
-            <li><a href="http://localhost/tp-Reservation/controller/create-reservation.controller.php">Create commande</a></li>
-            <li><a href="http://localhost/tp-Reservation/controller/cancel-reservation.controller.php">Cancel commande</a></li>
-            <li><a href="http://localhost/tp-Reservation/controller/pay-reservation.controller.php">Pay commande</a></li>
+            <li><a href="http://localhost/tp-Reservation/public/nouvelle-reservation">Create commande</a></li>
+            <li><a href="http://localhost/tp-Reservation/public/annuler-la-reservation">Cancel commande</a></li>
+            <li><a href="http://localhost/tp-Reservation/public/payer-la-reservation">Pay commande</a></li>
+            <li><a href="http://localhost/tp-Reservation/public/commenter-la-reservation"> Ajouter un commentaire</a></li>
         </ul>
     </header>
     

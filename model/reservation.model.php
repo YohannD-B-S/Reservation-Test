@@ -38,7 +38,7 @@ class Reservation
 
     public $commentDate;
 
-    public function __construct ( $firstName, $name, $place, $startDate, $endDate, $cleaningOption, $status){
+    public function __construct ( $firstName, $name, $place, $startDate, $endDate, $cleaningOption){
         // je donne des parametres a ma fonction construct.
 
     if (strlen ($name)<2){ //si le nombre de caractère est inferieur a 2
@@ -51,7 +51,7 @@ class Reservation
         $this->startDate =$startDate; //j'associe chaque parametre à une partie de ma class. startDate = $startDate
         $this->endDate = $endDate; //j'associe chaque parametre à une partie de ma class. endDate = $endDate
         $this->cleaningOption = $cleaningOption;  //j'associe chaque parametre à une partie de ma class. cleanOption = $cleanOption
-        $this->status = $status;
+
 
         $this->nightPrice = 1000; //on determine le prix de la nuit 
 
@@ -78,7 +78,7 @@ class Reservation
             
     }
 
-    public function leaveCommand($commentText) {
+    public function leaveComment($commentText) {
         if ($this->status == "PAYED") { // Vérifie si le statut est PAYED
             $this->comment = $commentText; // Attribue le texte du commentaire
             $this->commentDate = new DateTime(); // Attribue une date au commentaire
